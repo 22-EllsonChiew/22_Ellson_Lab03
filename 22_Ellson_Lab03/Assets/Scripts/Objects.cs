@@ -29,10 +29,5 @@ public class Objects : MonoBehaviour
     {
         
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        scoreSystem += 10;
-        scoreText.GetComponent<Text>().text = "Score: " + scoreSystem;
-        Destroy(gameObject);
-    }
+    
 }

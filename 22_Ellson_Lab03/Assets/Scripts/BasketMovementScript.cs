@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BasketMovementScript : MonoBehaviour
 {
@@ -8,7 +9,12 @@ public class BasketMovementScript : MonoBehaviour
 
     //Max movement
     public float maxX;
-   
+
+    //Score system
+    public Text scoreText;
+    public int theScore;
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,12 +33,25 @@ public class BasketMovementScript : MonoBehaviour
         Vector3 pos = transform.position;
         pos.x = Mathf.Clamp(pos.x, -maxX, maxX);
         transform.position = pos;
+
        
+    }
+
+    void OnTriggerEnter2D(Collider2D coliision)
+    {
+        if (coliision.gameObject.tag == "Healthy")
+        {
+            //ScoringSystem.instance.AddPoint();
+            theScore += 10;
+            scoreText.GetComponent<Text>().text = "Score: " + theScore;
+            //scoreText.text = scoreText.ToString() + "Score: " + theScore;
+            Destroy(coliision.gameObject);
+
+        }
+
 
     }
 
 
-
-    
 
 }
