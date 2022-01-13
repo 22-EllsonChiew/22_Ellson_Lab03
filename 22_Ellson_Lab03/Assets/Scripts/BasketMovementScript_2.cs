@@ -14,7 +14,8 @@ public class BasketMovementScript_2 : MonoBehaviour
     //Score system
     public Text scoreText;
     public int theScore;
-    
+
+    public AudioSource playSound;
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +48,7 @@ public class BasketMovementScript_2 : MonoBehaviour
         if (coliision.gameObject.tag == "Healthy")
         {
             //ScoringSystem.instance.AddPoint();
+            playSound.Play();
             theScore += 10;
             scoreText.GetComponent<Text>().text = "Score: " + theScore;
             //scoreText.text = scoreText.ToString() + "Score: " + theScore;
