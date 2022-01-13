@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BasketMovementScript : MonoBehaviour
 {
@@ -34,6 +35,10 @@ public class BasketMovementScript : MonoBehaviour
         pos.x = Mathf.Clamp(pos.x, -maxX, maxX);
         transform.position = pos;
 
+        if(theScore >= 100)
+        {
+            //SceneManager.LoadScene("LoseScenes");
+        }
        
     }
 
@@ -48,10 +53,15 @@ public class BasketMovementScript : MonoBehaviour
             Destroy(coliision.gameObject);
 
         }
-
+        if (coliision.gameObject.tag == "Unhealthy")
+        {
+            Debug.Log("1");
+            SceneManager.LoadScene("LoseScenes");
+        }
 
     }
 
+    
 
 
 }
