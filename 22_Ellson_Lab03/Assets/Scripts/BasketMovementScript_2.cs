@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class BasketMovementScript : MonoBehaviour
+public class BasketMovementScript_2 : MonoBehaviour
 {
     public float speed;
 
@@ -37,7 +37,7 @@ public class BasketMovementScript : MonoBehaviour
 
         if(theScore >= 100)
         {
-            SceneManager.LoadScene("Gameplay_Level 2");
+            SceneManager.LoadScene("WinScenes");
         }
        
     }
@@ -55,7 +55,7 @@ public class BasketMovementScript : MonoBehaviour
         }
         if (coliision.gameObject.tag == "Unhealthy")
         {
-            
+            Debug.Log("1");
             SceneManager.LoadScene("LoseScenes");
         }
 
