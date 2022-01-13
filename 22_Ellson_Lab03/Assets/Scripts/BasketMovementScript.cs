@@ -5,6 +5,9 @@ using UnityEngine;
 public class BasketMovementScript : MonoBehaviour
 {
     public float speed;
+
+    //Max movement
+    public float maxX;
    
     // Start is called before the first frame update
     void Start()
@@ -20,7 +23,10 @@ public class BasketMovementScript : MonoBehaviour
 
       transform.position = transform.position + new Vector3(horizontalInput * speed * Time.deltaTime, 0, 0);
 
-        
+        //Max Movement
+        Vector3 pos = transform.position;
+        pos.x = Mathf.Clamp(pos.x, -maxX, maxX);
+        transform.position = pos;
        
 
     }
