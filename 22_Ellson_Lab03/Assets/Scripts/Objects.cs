@@ -3,14 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ObjectMovement : MonoBehaviour
+public class Objects : MonoBehaviour
 {
-    private float ySpeed = -4f;
-
+    //Fruits and Junk object
+    public GameObject Apple;
+    public GameObject Strawberry;
+    public GameObject CakeSlice;
+    public GameObject SweetBun;
 
     //Score system
     public GameObject scoreText;
     public int scoreSystem;
+
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -21,14 +27,9 @@ public class ObjectMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(new Vector3(0f, ySpeed * Time.deltaTime, 0f));
-        if (transform.position.y < -5)
-        {
-            Destroy(this.gameObject);
-        }
+        
     }
-
-   void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         scoreSystem += 10;
         scoreText.GetComponent<Text>().text = "Score: " + scoreSystem;
