@@ -13,6 +13,11 @@ public class ScoringSystem : MonoBehaviour
 
     int score = 0;
 
+    private void Awake()
+    {
+        instance = this;
+    }
+
     void Start()
     {
         scoreText.text = score.ToString() + "Score: ";
